@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
 <header class="header" id="top">
   <div class="wrap header__row">
@@ -47,11 +49,12 @@
 <main>
 
 <section class="hero">
+  <canvas class="hero__bubbles" id="bubbles" aria-hidden="true"></canvas>
   <div class="hero__waves" aria-hidden="true">
     <svg viewBox="0 0 1440 600" preserveAspectRatio="none">
-      <path d="M0 380 C 240 300 480 460 720 380 S 1200 300 1440 380 V600 H0Z" fill="rgba(255,255,255,.06)"/>
-      <path d="M0 450 C 260 380 520 520 780 450 S 1220 390 1440 450 V600 H0Z" fill="rgba(255,255,255,.08)"/>
-      <path d="M0 520 C 300 470 560 580 840 520 S 1260 480 1440 520 V600 H0Z" fill="rgba(255,255,255,.10)"/>
+      <path d="M0 380 C 240 300 480 460 720 380 S 1200 300 1440 380 V600 H0Z" fill="rgba(255,255,255,.06)" class="wave wave--1"/>
+      <path d="M0 450 C 260 380 520 520 780 450 S 1220 390 1440 450 V600 H0Z" fill="rgba(255,255,255,.08)" class="wave wave--2"/>
+      <path d="M0 520 C 300 470 560 580 840 520 S 1260 480 1440 520 V600 H0Z" fill="rgba(255,255,255,.10)" class="wave wave--3"/>
     </svg>
   </div>
   <div class="wrap hero__grid">
@@ -69,7 +72,7 @@
         <li><b>Swiss made</b> заводський тест кожної системи</li>
       </ul>
     </div>
-    <figure class="hero__img">
+    <figure class="hero__img" id="tilt">
       <img src="/assets/img/ha-pro-100.jpg" alt="Система AQUA4D H-A Pro 100" width="600" height="789">
       <figcaption>AQUA4D® H-A Pro 100 — до 180 м³/год</figcaption>
     </figure>
@@ -169,8 +172,8 @@
       <h2>Виноград шардоне, Ефіопія</h2>
       <p>Вода зі свердловини, засолений ґрунт. Протягом 12 місяців порівнювали дві однакові ділянки: з AQUA4D® і без.</p>
       <div class="case__stats">
-        <div><b>+22%</b><span>урожаю<br>6 325 → 7 743 кг/га</span></div>
-        <div><b>−30%</b><span>води на добу<br>344 → 242 м³</span></div>
+        <div><b data-count="22" data-prefix="+">+22%</b><span>урожаю<br>6 325 → 7 743 кг/га</span></div>
+        <div><b data-count="30" data-prefix="−">−30%</b><span>води на добу<br>344 → 242 м³</span></div>
       </div>
       <p class="case__note">Дані AQUA4D Water Solutions, 2015. Результат залежить від води, ґрунту й культури, тому ми починаємо з пілоту на вашому об'єкті.</p>
     </div>
