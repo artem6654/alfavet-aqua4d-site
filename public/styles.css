@@ -278,3 +278,23 @@ details p { margin: 0 0 18px; color: var(--muted); }
   .wave, .hero__img img, .hero__text > *, .hero__img { animation: none; }
   .cursor-ring, .drop, .hero__bubbles { display: none; }
 }
+
+/* ===== Site background ===== */
+body { background: #f3f9f8; }
+.site-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: linear-gradient(180deg, #f6fbfa 0%, #eef7f6 50%, #f6fbfa 100%); }
+.site-bg__blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .85; animation: drift 26s ease-in-out infinite alternate; }
+.site-bg__blob--1 { width: 46vw; height: 46vw; left: -12vw; top: 8vh; background: #7fd9d1; }
+.site-bg__blob--2 { width: 38vw; height: 38vw; right: -10vw; top: 40vh; background: #c6efe9; animation-duration: 32s; animation-delay: -8s; }
+.site-bg__blob--3 { width: 30vw; height: 30vw; left: 30vw; bottom: -14vw; background: #b3e8e2; animation-duration: 22s; animation-delay: -14s; }
+@keyframes drift { 50% { transform: translate(6vw, -4vh) scale(1.08); } 100% { transform: translate(-3vw, 5vh) scale(.95); } }
+.site-bg__ripples { position: absolute; left: 0; right: 0; top: 0; height: calc(100% + 900px); background: url("/assets/img/ripples.svg") 0 0 / 900px 900px repeat; opacity: .7; will-change: transform; }
+
+/* Let the background show through light sections */
+.how, .process { background: rgba(255,255,255,.3); }
+.card { background: rgba(255,255,255,.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); box-shadow: 0 6px 20px rgba(0,60,56,.05); }
+.sector { background: rgba(255,255,255,.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.table-wrap { background: rgba(255,255,255,.88); }
+.faq details { border-color: rgba(0,133,125,.15); }
+.why__grid > div { background: rgba(255,255,255,.55); border-radius: 0 14px 14px 0; padding: 16px 18px 16px 20px; }
+
+@media (prefers-reduced-motion: reduce) { .site-bg__blob { animation: none; } }
