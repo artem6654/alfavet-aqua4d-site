@@ -51,19 +51,15 @@ h1, h2, h3 { font-family: var(--head); color: var(--ink); line-height: 1.15; mar
 .eyebrow--light { color: #bff0ec; }
 
 /* Hero */
-.hero { position: relative; overflow: hidden; color: #fff; background: radial-gradient(1200px 600px at 85% 20%, #11c1b5 0%, transparent 60%), linear-gradient(135deg, var(--teal-deep), var(--teal) 85%); padding: 88px 0 110px; }
-.hero__waves { position: absolute; inset: 0; pointer-events: none; }
-.hero__waves svg { width: 100%; height: 100%; }
-.hero__grid { position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 56px; align-items: center; }
+.hero { position: relative; overflow: hidden; color: #fff; background: radial-gradient(1200px 600px at 85% 20%, #11c1b5 0%, transparent 60%), linear-gradient(135deg, var(--teal-deep), var(--teal) 85%); padding: 120px 0 130px; }
+.hero__grid { position: relative; }
+.hero__text { max-width: 720px; }
 .hero h1 { color: #fff; font-size: clamp(32px, 4.6vw, 54px); font-weight: 700; letter-spacing: -.01em; }
 .lead { font-size: 18px; color: rgba(255,255,255,.9); max-width: 620px; font-weight: 300; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 32px 0 40px; }
 .hero__facts { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 28px; font-size: 14px; color: rgba(255,255,255,.85); }
 .hero__facts li { max-width: 180px; }
 .hero__facts b { display: block; font-family: var(--head); font-size: 22px; color: #fff; }
-.hero__img { margin: 0; background: #fff; border-radius: 28px; padding: 28px 28px 18px; box-shadow: 0 30px 60px rgba(0,40,38,.35); }
-.hero__img img { margin: 0 auto; max-height: 420px; width: auto; }
-.hero__img figcaption { text-align: center; color: var(--muted); font-size: 13px; margin-top: 10px; }
 
 /* Sections */
 section { padding: 88px 0; }
@@ -179,8 +175,7 @@ details p { margin: 0 0 18px; color: var(--muted); }
   .nav a { padding: 14px 4px; border-bottom: 1px solid var(--line); }
   .nav .nav__cta { margin-top: 14px; text-align: center; border: 0; }
   .hero { padding: 56px 0 80px; }
-  .hero__grid, .case__grid, .contact__grid { grid-template-columns: 1fr; gap: 36px; }
-  .hero__img { max-width: 360px; }
+  .case__grid, .contact__grid { grid-template-columns: 1fr; gap: 36px; }
   .cards--3 { grid-template-columns: 1fr; }
   section { padding: 64px 0; }
 }
@@ -217,13 +212,6 @@ details p { margin: 0 0 18px; color: var(--muted); }
 .header.scrolled .header__row { height: 60px; }
 .header.scrolled .nav { top: 60px; }
 
-/* Hero waves and bubbles */
-.hero__bubbles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.hero__waves svg { width: 112%; margin-left: -6%; }
-.wave { animation: sway 9s ease-in-out infinite alternate; }
-.wave--2 { animation-duration: 12s; animation-delay: -3s; }
-.wave--3 { animation-duration: 7s; animation-delay: -5s; }
-@keyframes sway { from { transform: translateX(-60px); } to { transform: translateX(60px); } }
 
 /* Hero entrance */
 .hero__text > * { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
@@ -231,10 +219,7 @@ details p { margin: 0 0 18px; color: var(--muted); }
 .hero__text > :nth-child(3) { animation-delay: .2s; }
 .hero__text > :nth-child(4) { animation-delay: .3s; }
 .hero__text > :nth-child(5) { animation-delay: .4s; }
-.hero__img { animation: rise 1s .25s cubic-bezier(.2,.7,.2,1) both; transition: transform .2s ease-out; transform-style: preserve-3d; will-change: transform; }
-.hero__img img { animation: float 6s ease-in-out infinite; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } }
-@keyframes float { 50% { transform: translateY(-8px); } }
 
 /* Button ripple + shine */
 .btn { position: relative; overflow: hidden; isolation: isolate; }
@@ -266,8 +251,8 @@ details p { margin: 0 0 18px; color: var(--muted); }
 .case__img:hover img { transform: scale(1.05); }
 
 @media (prefers-reduced-motion: reduce) {
-  .wave, .hero__img img, .hero__text > *, .hero__img { animation: none; }
-  .cursor-ring, .drop, .hero__bubbles { display: none; }
+  .hero__text > * { animation: none; }
+  .cursor-ring, .drop { display: none; }
 }
 
 /* ===== Photography ===== */
