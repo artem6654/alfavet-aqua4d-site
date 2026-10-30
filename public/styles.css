@@ -278,3 +278,21 @@ details p { margin: 0 0 18px; color: var(--muted); }
   .wave, .hero__img img, .hero__text > *, .hero__img { animation: none; }
   .cursor-ring, .drop, .hero__bubbles { display: none; }
 }
+
+/* ===== Photography ===== */
+.hero { background: linear-gradient(90deg, rgba(8,62,59,.9) 0%, rgba(8,62,59,.68) 52%, rgba(0,120,112,.28) 100%), url("/assets/openart/hero.jpg") center / cover no-repeat, var(--teal-deep); }
+
+.sector { overflow: hidden; padding-top: 0; }
+.sector__media { margin: 0 -28px 20px; aspect-ratio: 16 / 10; overflow: hidden; }
+.sector__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.sector:hover .sector__media img { transform: scale(1.06); }
+
+.process__img { margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; }
+.process__img img { width: 100%; height: 300px; object-fit: cover; object-position: center 60%; }
+
+.contact { background: linear-gradient(135deg, rgba(8,62,59,.92), rgba(0,133,125,.72)), url("/assets/openart/water-texture.jpg") center / cover no-repeat, var(--teal-deep); }
+
+@media (max-width: 900px) {
+  .hero { background: linear-gradient(180deg, rgba(8,62,59,.86), rgba(8,62,59,.7)), url("/assets/openart/hero.jpg") 70% center / cover no-repeat, var(--teal-deep); }
+  .process__img img { height: 200px; }
+}
