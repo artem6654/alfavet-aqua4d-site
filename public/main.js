@@ -209,17 +209,3 @@ if (canvas && !reduceMotion) {
   };
   draw();
 }
-
-// Slow parallax for the background ripples
-const bgRipples = document.getElementById('bg-ripples');
-if (bgRipples && !reduceMotion) {
-  let ticking = false;
-  addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      bgRipples.style.transform = `translateY(${-(scrollY * 0.15) % 900}px)`;
-      ticking = false;
-    });
-  }, { passive: true });
-}
