@@ -153,3 +153,12 @@ if (!reduceMotion && finePointer) {
 
 }
 
+
+// Installation video plays only while it is on screen
+const installVideo = document.getElementById('install-video');
+if (installVideo && !reduceMotion && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => {
+    if (en.isIntersecting) installVideo.play().catch(() => {});
+    else installVideo.pause();
+  }, { threshold: 0.4 }).observe(installVideo);
+}

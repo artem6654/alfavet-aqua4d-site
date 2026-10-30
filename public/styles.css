@@ -377,3 +377,8 @@ details p { margin: 0 0 18px; color: var(--muted); }
   .steps--row { grid-template-columns: 1fr; gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .scheme .flow-dots, .scheme .impeller, .scheme .wire { animation: none; } }
+
+/* ===== Installation video ===== */
+.install__video { margin: 0 auto; max-width: 1040px; }
+.install__video video { display: block; width: 100%; height: auto; border-radius: var(--radius); background: var(--teal-deep); box-shadow: 0 16px 40px rgba(0,60,56,.14); }
+.install__video figcaption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; }

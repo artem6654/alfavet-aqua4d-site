@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+:root { --teal:#00a79d; --deep:#0b4f4b; --mint:#6fe3da; --soft:#e6f6f5; --ink:#231f20; --muted:#5f6968; --steel:#b9c3c1; --steel2:#8d9a98; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:1920px; height:1080px; overflow:hidden; background:#fff; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:"Montserrat",sans-serif; color:var(--ink); background:#fff; }
+.full { position:absolute; inset:0; }
+.dark { background:var(--deep); color:#fff; display:flex; flex-direction:column; justify-content:center; padding:0 150px; }
+.dark h1 { font-size:124px; font-weight:800; line-height:1.05; letter-spacing:-.01em; }
+.dark .sub { font-size:48px; font-weight:500; color:var(--mint); margin-top:34px; }
+.dark .rule { width:150px; height:8px; background:var(--mint); border-radius:4px; margin-bottom:44px; transform-origin:0 50%; }
+.step { position:absolute; left:110px; top:84px; width:1320px; height:300px; }
+.badge { position:absolute; left:0; top:0; width:108px; height:108px; border-radius:54px; background:#00857d; color:#fff; font-size:60px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+.step h2 { position:absolute; left:140px; top:12px; width:1180px; font-size:70px; font-weight:800; color:var(--deep); line-height:1.08; }
+.step p { position:absolute; left:140px; top:112px; width:1180px; font-size:42px; font-weight:500; line-height:1.3; color:var(--muted); }
+.pipe { position:absolute; top:608px; height:84px; background:var(--steel); }
+.channel { position:absolute; top:624px; height:52px; background:var(--teal); transform-origin:0 50%; }
+.part { position:absolute; background:var(--steel2); border-radius:6px; }
+.ring { position:absolute; width:16px; height:108px; top:596px; border-radius:8px; background:var(--teal); }
+#tu { position:absolute; left:580px; top:584px; width:760px; height:133px; }
+#cu { position:absolute; left:1490px; top:150px; width:220px; height:224px; }
+svg.ov { position:absolute; left:0; top:0; width:1920px; height:1080px; }
+.lb { position:absolute; font-size:40px; font-weight:600; color:var(--deep); }
+.chain { position:absolute; left:110px; top:420px; width:1700px; display:flex; align-items:center; justify-content:space-between; }
+.node { width:330px; height:190px; border-radius:30px; border:4px solid var(--steel); background:#fff; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:700; color:var(--ink); }
+.node.main { background:#00857d; border-color:#00857d; color:#fff; }
+.arw { font-size:64px; font-weight:700; color:var(--teal); }
+.note { position:absolute; left:110px; top:720px; width:1700px; font-size:42px; font-weight:500; color:var(--muted); line-height:1.4; }
+.end p { font-size:46px; font-weight:500; margin-top:26px; }
+.end .mail { color:var(--mint); font-weight:700; }
+.end .small { font-size:30px; color:#bfe5e1; margin-top:64px; }
+.bar { position:absolute; left:110px; top:870px; width:360px; height:26px; border-radius:13px; background:var(--soft); overflow:hidden; }
+#barf { position:absolute; left:0; top:0; width:360px; height:26px; background:var(--teal); transform-origin:0 50%; }
+.tick { position:absolute; width:76px; height:76px; border-radius:38px; background:#00857d; color:#fff; font-size:44px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-width="1920" data-height="1080" data-start="0" data-duration="53" data-fps="30">
+
+  <div id="title" class="clip full dark" data-start="0" data-duration="4.4" data-track-index="1" data-hold="true">
+    <div class="rule" id="trule"></div>
+    <h1 id="th">Монтаж AQUA4D®</h1>
+    <div class="sub" id="ts">Швейцарська система обробки води без хімії</div>
+  </div>
+
+  <div id="place" class="clip full" data-start="4.4" data-duration="6.6" data-track-index="1">
+    <div class="step" style="width:1700px">
+      <div class="badge" id="s1b">1</div>
+      <h2 id="s1h" style="width:1500px">Обираємо місце</h2>
+      <p id="s1p" style="width:1500px">Система стоїть після насосів, добрив і фільтрів.</p>
+    </div>
+    <div class="chain">
+      <div class="node" id="n1">Насос</div><div class="arw" id="a1">→</div>
+      <div class="node" id="n2">Добрива</div><div class="arw" id="a2">→</div>
+      <div class="node" id="n3">Фільтри</div><div class="arw" id="a3">→</div>
+      <div class="node main" id="n4">AQUA4D®</div>
+    </div>
+    <div class="note" id="pnote">Відстань: 3 м від великих двигунів, 2 м після малих насосів.</div>
+  </div>
+
+  <div id="stage" class="clip full" data-start="11" data-duration="37" data-track-index="2">
+    <div class="pipe" id="pl" style="left:0;width:520px"></div>
+    <div class="pipe" id="pr" style="left:1400px;width:520px"></div>
+    <div class="pipe" id="pm" style="left:520px;width:880px"></div>
+    <div class="channel" id="wl" style="left:0;width:580px"></div>
+    <div class="channel" id="wr" style="left:1340px;width:580px"></div>
+    <div class="part" id="fl" style="left:470px;top:596px;width:50px;height:108px"></div>
+    <div class="part" id="fr" style="left:1400px;top:596px;width:50px;height:108px"></div>
+    <div class="part" id="al" style="left:520px;top:604px;width:60px;height:92px;background:#6f7c7a"></div>
+    <div class="part" id="ar" style="left:1340px;top:604px;width:60px;height:92px;background:#6f7c7a"></div>
+    <div class="ring" id="rl" style="left:572px"></div>
+    <div class="ring" id="rr" style="left:1332px"></div>
+    <img id="tu" src="assets/tu-unit.jpg" alt="Блок обробки AQUA4D" />
+    <img id="cu" src="assets/cu-h-00.jpg" alt="Блок керування AQUA4D" />
+    <svg class="ov" viewBox="0 0 1920 1080" data-layout-allow-overlap>
+      <path id="cutl" d="M520 560V740" stroke="#00a79d" stroke-width="6" stroke-dasharray="16 12" fill="none"/>
+      <path id="cutr" d="M1400 560V740" stroke="#00a79d" stroke-width="6" stroke-dasharray="16 12" fill="none"/>
+      <path id="dim" d="M520 790H1400M520 770v40M1400 770v40" stroke="#5f6968" stroke-width="4" fill="none"/>
+      <path id="flowarrow" d="M780 530H1140M1104 508l36 22-36 22" stroke="#00857d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path id="cable" d="M1600 374V470H1239V590" stroke="#00a79d" stroke-width="7" stroke-dasharray="18 12" fill="none"/>
+      <path id="power" d="M1710 262H1860" stroke="#5f6968" stroke-width="6" fill="none"/>
+      <path id="ground" d="M1600 692V810M1560 810h80M1574 826h52M1588 842h24" stroke="#5f6968" stroke-width="7" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="lb" id="handlb" style="left:800px;top:750px;width:330px;text-align:center">вручну</div>
+    <div class="lb" id="powlb" style="left:1720px;top:206px;font-size:34px;white-space:nowrap">100–240 В</div>
+    <div class="lb" id="presslb" style="left:110px;top:806px">Тиск</div>
+    <div class="bar" id="bar"><div id="barf"></div></div>
+    <div class="tick" id="t1" style="left:512px;top:494px">✓</div>
+    <div class="tick" id="t2" style="left:1332px;top:494px">✓</div>
+  </div>
+
+    <div id="s2" class="clip step" data-start="11" data-duration="7" data-track-index="3">
+      <div class="badge" id="s2b">2</div>
+      <h2 id="s2h">Готуємо трубу</h2>
+      <p id="s2p">Вирізаємо ділянку під блок обробки.<br>Довжина залежить від моделі.</p>
+    </div>
+    <div id="s3" class="clip step" data-start="18" data-duration="6" data-track-index="3">
+      <div class="badge" id="s3b">3</div>
+      <h2 id="s3h">Ставимо адаптери</h2>
+      <p id="s3p">Перевіряємо ущільнювальні кільця.</p>
+    </div>
+    <div id="s4" class="clip step" data-start="24" data-duration="7" data-track-index="3">
+      <div class="badge" id="s4b">4</div>
+      <h2 id="s4h">Встановлюємо блок обробки</h2>
+      <p id="s4p">Закручуємо вручну, без інструментів.<br>Стрілка на блоці — за потоком води.</p>
+    </div>
+    <div id="s5" class="clip step" data-start="31" data-duration="6" data-track-index="3">
+      <div class="badge" id="s5b">5</div>
+      <h2 id="s5h">Підключаємо блок керування</h2>
+      <p id="s5p">Кабель до блока обробки,<br>живлення 100–240 В.</p>
+    </div>
+    <div id="s6" class="clip step" data-start="37" data-duration="4" data-track-index="3">
+      <div class="badge" id="s6b">6</div>
+      <h2 id="s6h">Заземлення</h2>
+      <p id="s6p">Виробник рекомендує заземлення води.</p>
+    </div>
+    <div id="s7" class="clip step" data-start="41" data-duration="7" data-track-index="3">
+      <div class="badge" id="s7b">7</div>
+      <h2 id="s7h">Пускаємо воду</h2>
+      <p id="s7p">Поступово піднімаємо тиск<br>і перевіряємо, чи немає протікань.</p>
+    </div>
+
+  <div id="end" class="clip full dark end" data-start="48" data-duration="5" data-track-index="4">
+    <div id="elogo"><svg viewBox="0 0 1674.78 294.765" width="620"><g fill="#fff"><path d="M53.1 91.45h18.78l52.6 120.22H99.65l-11.37-27.48H35.35l-11 27.51H0Zm27.59 74.37-18.81-48.9-19.14 48.9Z"/><path d="M222.75 91.45h21.72v101.2h51.9v19h-73.62Z"/><path d="M397.05 91.45h78.83v18.67h-57.1v32.95h53.79v18h-53.79v50.6h-21.73Z"/><path d="M620.32 91.45h18.79l52.59 120.22h-24.82l-11.39-27.48h-52.93l-11 27.51h-24.34Zm27.56 74.37-18.79-48.9-19.14 48.9Z"/><path d="M1185.67 91.44h24.31l33.61 92.55h.69l34-92.55h23.45l-49 120.23h-18.79Z"/><path d="M1399.62 91.44h80.86v18.68h-59.13v30.57h56v18h-56v34h62.24v19h-84Z"/><path d="M1615.65 110.12h-37.42V91.44h96.55v18.68h-37.41v101.55h-21.72Z"/></g><g fill="#6fe3da"><path d="M934.39 0a146.67 146.67 0 0 0-73.35 19.52L791.88 4.24l14.93 69.3a147.41 147.41 0 0 0 196.52 204.12v-72a90.28 90.28 0 1 1-69-148.53c21.19 0 40.24 7.84 56.84 20.15 31.17 23.13 32.84 64 32.84 97.15v117.76h57.7V153.55C1081.77 61.19 1015.78 0 934.39 0Z"/><circle cx="903.55" cy="123.85" r="32.5"/></g></svg></div>
+    <p id="e1" style="margin-top:60px">Офіційний дистриб'ютор AQUA4D® в Україні</p>
+    <p id="e2">Монтаж і сервіс — наша команда</p>
+    <p id="e3" class="mail">info@alfa-vet.com</p>
+    <p id="e4" class="small">Схема спрощена. Порядок залежить від моделі.</p>
+  </div>
+</div>
+
+<script>
+const tl = gsap.timeline({ paused:true });
+const out = "power3.out", io = "power2.inOut";
+const inText = (ids, t) => ids.forEach((id,i) => tl.from(id, { opacity:0, y:26, duration:.6, ease:out }, t + i*.14));
+
+// title
+tl.from("#trule", { scaleX:0, duration:.7, ease:out }, .2);
+
+// step 1
+inText(["#s1b","#s1h","#s1p"], 4.6);
+["#n1","#a1","#n2","#a2","#n3","#a3","#n4"].forEach((id,i) => tl.from(id, { opacity:0, x:-40, duration:.45, ease:out }, 5.4 + i*.3));
+tl.to("#n4", { scale:1.08, duration:.5, ease:io }, 7.8);
+tl.to("#n4", { scale:1, duration:.5, ease:io }, 8.3);
+tl.from("#pnote", { opacity:0, y:20, duration:.6, ease:out }, 7.8);
+
+// initial stage state
+const hide = "#fl,#fr,#al,#ar,#rl,#rr,#tu,#cu,#cutl,#cutr,#dim,#flowarrow,#cable,#power,#ground,#handlb,#powlb,#presslb,#bar,#t1,#t2";
+tl.set(hide, { opacity:0 }, 0);
+tl.set("#wl,#wr", { scaleX:0 }, 0);
+tl.set("#barf", { scaleX:0 }, 0);
+
+// step 2: cut
+inText(["#s2b","#s2h","#s2p"], 11.2);
+tl.to("#cutl,#cutr", { opacity:1, duration:.4 }, 12.4);
+tl.to("#dim", { opacity:1, duration:.5 }, 12.9);
+tl.to("#pm", { y:120, opacity:0, duration:1, ease:"power2.in" }, 14);
+tl.to("#cutl,#cutr", { opacity:0, duration:.3 }, 15);
+tl.to("#fl", { opacity:1, duration:.01 }, 15.4);
+tl.to("#fr", { opacity:1, duration:.01 }, 15.4);
+tl.from("#fl", { x:-60, duration:.6, ease:out }, 15.4);
+tl.from("#fr", { x:60, duration:.6, ease:out }, 15.4);
+tl.to("#dim", { opacity:0, duration:.4 }, 17.3);
+
+// step 3: adaptors
+inText(["#s3b","#s3h","#s3p"], 18.2);
+tl.to("#al,#ar", { opacity:1, duration:.01 }, 19.2);
+tl.from("#al", { y:-200, duration:.8, ease:out }, 19.2);
+tl.from("#ar", { y:-200, duration:.8, ease:out }, 19.4);
+tl.to("#rl,#rr", { opacity:1, duration:.4 }, 20.6);
+tl.to("#rl,#rr", { scaleY:1.18, duration:.45, ease:io }, 21);
+tl.to("#rl,#rr", { scaleY:1, duration:.45, ease:io }, 21.45);
+tl.to("#rl,#rr", { opacity:0, duration:.4 }, 23);
+
+// step 4: treatment unit
+inText(["#s4b","#s4h","#s4p"], 24.2);
+tl.to("#tu", { opacity:1, duration:.01 }, 25);
+tl.from("#tu", { y:-230, duration:1.1, ease:out }, 25);
+tl.to("#handlb", { opacity:1, duration:.4 }, 26.4);
+tl.to("#flowarrow", { opacity:1, duration:.5 }, 27.6);
+tl.from("#flowarrow", { x:-50, duration:.7, ease:out }, 27.6);
+tl.to("#handlb", { opacity:0, duration:.3 }, 30.4);
+
+// step 5: control unit
+inText(["#s5b","#s5h","#s5p"], 31.2);
+tl.to("#cu", { opacity:1, duration:.01 }, 32);
+tl.from("#cu", { scale:.8, duration:.7, ease:out }, 32);
+tl.to("#cable", { opacity:1, duration:.7 }, 33);
+tl.to("#power", { opacity:1, duration:.4 }, 34.2);
+tl.to("#powlb", { opacity:1, duration:.4 }, 34.4);
+
+// step 6: ground
+inText(["#s6b","#s6h","#s6p"], 37.2);
+tl.to("#ground", { opacity:1, duration:.6 }, 38.2);
+
+// step 7: water
+inText(["#s7b","#s7h","#s7p"], 41.2);
+tl.to("#presslb,#bar", { opacity:1, duration:.4 }, 42);
+tl.to("#barf", { scaleX:1, duration:4, ease:"none" }, 42.4);
+tl.to("#wl", { scaleX:1, duration:1.8, ease:"none" }, 42.4);
+tl.to("#wr", { scaleX:1, duration:1.8, ease:"none" }, 44.2);
+tl.to("#t1,#t2", { opacity:1, duration:.4 }, 46.2);
+
+// end
+tl.from("#end", { opacity:0, duration:.5 }, 48);
+inText(["#elogo","#e1","#e2","#e3","#e4"], 48.2);
+
+window.__timelines = window.__timelines || {};
+window.__timelines["root"] = tl;
+</script>
+</body>
+</html>

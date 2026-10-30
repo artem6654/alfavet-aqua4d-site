@@ -6,4 +6,6 @@
 - `public/assets/img/` — фото обладнання з даташитів AQUA4D
 - Форма заявки відкриває лист на info@alfa-vet.com (без бекенду)
 
+- `video/montazh/` — джерело відео про монтаж (HyperFrames)
+
 Локально: `npx serve public`
