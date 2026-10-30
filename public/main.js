@@ -24,7 +24,7 @@ tabs.forEach((tab) => {
 });
 
 // Reveal on scroll
-const revealEls = document.querySelectorAll('.card, .sector, .timeline li, .why__grid > div, .case__grid > div');
+const revealEls = document.querySelectorAll('.card, .sector, .timeline li, .why__grid > div, .case__grid > div, .stat, .benefit, .result, .certs__list li');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
@@ -99,7 +99,7 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
       const start = performance.now();
       const step = (t) => {
         const k = Math.min((t - start) / 1400, 1);
-        el.textContent = `${el.dataset.prefix}${Math.round(end * (1 - Math.pow(1 - k, 3)))}%`;
+        el.textContent = `${el.dataset.prefix}${Math.round(end * (1 - Math.pow(1 - k, 3)))}${el.dataset.suffix ?? '%'}`;
         if (k < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
