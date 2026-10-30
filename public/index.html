@@ -118,28 +118,92 @@
 </section>
 
 <section class="how" id="how">
-  <div class="wrap how__grid">
-    <div>
-      <p class="eyebrow">Технологія</p>
-      <h2 class="section-title section-title--left">Як працює AQUA4D®</h2>
-      <ol class="steps">
-        <li><b>Блок керування</b> генерує набір електромагнітних сигналів, підібраний під тип води та задачу.</li>
-        <li><b>Блок обробки</b> монтується прямо на трубу. Сигнал передається у воду, що проходить крізь нього.</li>
-        <li><b>Мінерали залишаються розчиненими</b> і не осідають у трубах, ніпелях, крапельницях і в ґрунті.</li>
-      </ol>
-      <p class="muted">Вода не змінює хімічний склад: нічого не додається й не видаляється. Система не потребує витратних матеріалів і може працювати від сонячної панелі.</p>
-    </div>
-    <div class="how__visual">
-      <figure class="part">
-        <img src="/assets/img/cu-h-00.jpg" alt="Блок керування AQUA4D CU H 00" loading="lazy">
-        <figcaption>Блок керування</figcaption>
-      </figure>
-      <svg class="how__signal" viewBox="0 0 120 40" aria-hidden="true"><path d="M0 20 Q 10 0 20 20 T 40 20 T 60 20 T 80 20 T 100 20 T 120 20"/></svg>
-      <figure class="part part--wide">
-        <img src="/assets/img/tu-h-a-60.jpg" alt="Блок обробки AQUA4D TU 60" loading="lazy">
-        <figcaption>Блок обробки на трубі</figcaption>
-      </figure>
-    </div>
+  <div class="wrap">
+    <p class="eyebrow eyebrow--center">Технологія</p>
+    <h2 class="section-title">Як працює AQUA4D®</h2>
+    <p class="section-sub">Система стоїть на трубі після насоса, фільтрів і дозатора. Вода проходить крізь блок обробки без зупинки потоку й без реагентів.</p>
+    <figure class="scheme">
+      <svg class="scheme__svg scheme__svg--h" viewBox="0 0 1160 540" role="img" aria-labelledby="scheme-title">
+  <title id="scheme-title">Схема: вода проходить через насос, фільтри й дозатор, потім через блок обробки AQUA4D на трубі. Блок керування з'єднаний із ним кабелем. Далі оброблена вода йде до напувалок або крапельниць.</title>
+  <text class="zone" x="128" y="44">ВОДА ДО ОБРОБКИ</text>
+  <text class="zone zone--t" x="880" y="44">ОБРОБЛЕНА ВОДА</text>
+  <path class="zone-line" d="M128 58H600"/><path class="zone-line zone-line--t" d="M880 58H1130"/>
+  <path class="pipe pipe--raw" d="M118 340H626"/><path class="flow-dots flow-dots--raw" d="M118 340H626"/>
+  <path class="pipe pipe--ok" d="M852 340H1000M1000 340V236H1046M1000 340V444H1046"/>
+  <path class="flow-dots flow-dots--ok" d="M852 340H1000V236H1046"/><path class="flow-dots flow-dots--ok" d="M852 340H1000V444H1046"/>
+  <rect class="eq" x="30" y="270" width="88" height="124" rx="10"/><path class="water-fill" d="M34 306q11-7 20 0t20 0 20 0 20 0v80a8 8 0 0 1-8 8h-64a8 8 0 0 1-8-8z"/>
+  <text class="lb" x="74" y="424" text-anchor="middle">Резервуар</text><text class="lb-sm" x="74" y="442" text-anchor="middle">або свердловина</text>
+  <circle class="eq" cx="230" cy="340" r="32"/><g class="impeller" style="transform-origin:230px 340px"><path class="eq-line" d="M230 320v40M210 340h40M216 326l28 28M244 326l-28 28"/></g><circle class="eq-hub" cx="230" cy="340" r="6"/>
+  <text class="lb" x="230" y="400" text-anchor="middle">Насос</text>
+  <rect class="eq" x="326" y="282" width="48" height="96" rx="12"/><path class="eq-line" d="M336 298v64M345 298v64M355 298v64M364 298v64"/>
+  <text class="lb" x="350" y="400" text-anchor="middle">Фільтри</text>
+  <rect class="eq" x="454" y="236" width="52" height="62" rx="8"/><path class="water-fill water-fill--dose" d="M458 258h44v34a4 4 0 0 1-4 4h-36a4 4 0 0 1-4-4z"/><path class="eq-line" d="M480 298v30"/>
+  <circle class="joint" cx="480" cy="340" r="7"/>
+  <text class="lb" x="480" y="222" text-anchor="middle">Дозатор</text>
+  <text class="lb-sm" x="480" y="376" text-anchor="middle">добрива або</text><text class="lb-sm" x="480" y="393" text-anchor="middle">добавки</text>
+  <image href="/assets/img/tu-unit.jpg" x="620" y="319" width="240" height="42"/>
+  <path class="tu-arrow" d="M690 300h100m-12-7 12 7-12 7"/>
+  <text class="lb lb--t" x="740" y="404" text-anchor="middle">Блок обробки (TU)</text>
+  <text class="lb-sm" x="740" y="423" text-anchor="middle">монтується на трубу,</text><text class="lb-sm" x="740" y="440" text-anchor="middle">стрілка за потоком води</text>
+  <image href="/assets/img/cu-h-00.jpg" x="676" y="72" width="130" height="145"/>
+  <text class="lb lb--t" x="600" y="118" text-anchor="end">Блок керування (CU)</text>
+  <text class="lb-sm" x="600" y="137" text-anchor="end">генерує сигнал і стежить</text><text class="lb-sm" x="600" y="154" text-anchor="end">за роботою системи</text>
+  <path class="wire-power" d="M806 130H890"/><text class="lb-sm" x="898" y="135">живлення 100–240 В</text>
+  <path class="wire" d="M741 217V246H828V319"/>
+  <text class="lb-sm" x="838" y="270">кабель сигналу</text><text class="lb-sm" x="838" y="287">2 м у комплекті</text>
+  <path class="ground" d="M900 351v34M882 385h36M888 393h24M894 401h12"/>
+  <text class="lb-sm" x="900" y="424" text-anchor="middle">заземлення води</text><text class="lb-sm" x="900" y="441" text-anchor="middle">рекомендоване</text>
+  <path class="eq-line" d="M1046 214v44M1046 222h34M1046 236h34M1046 250h34"/>
+  <path class="w-drop" d="M1098 214c-6 8-9 12-9 17a9 9 0 0 0 18 0c0-5-3-9-9-17z"/><path class="w-drop" d="M1098 244c-6 8-9 12-9 17a9 9 0 0 0 18 0c0-5-3-9-9-17z"/>
+  <text class="lb" x="1046" y="176">Напувалки</text><text class="lb-sm" x="1046" y="195">ферма</text>
+  <path class="eq-line" d="M1046 422v44M1046 444h60"/>
+  <path class="w-drop" d="M1070 450c-6 8-9 12-9 17a9 9 0 0 0 18 0c0-5-3-9-9-17z"/><path class="w-drop" d="M1094 450c-6 8-9 12-9 17a9 9 0 0 0 18 0c0-5-3-9-9-17z"/>
+  <text class="lb" x="1046" y="504">Крапельниці</text><text class="lb-sm" x="1046" y="522">полив</text>
+  <path class="dim" d="M230 470H620M230 462v16M620 462v16"/>
+  <text class="lb-sm" x="425" y="494" text-anchor="middle">від насоса до блока обробки: мінімум 2 м, від великих двигунів 3 м</text>
+</svg>
+      <svg class="scheme__svg scheme__svg--v" viewBox="0 0 343 1010" role="img" aria-label="Схема: вода проходить через насос, фільтри й дозатор, потім через блок обробки AQUA4D. Блок керування з'єднаний із ним кабелем. Далі оброблена вода йде до напувалок або крапельниць.">
+  <text class="zone" x="20" y="24">ВОДА ДО ОБРОБКИ</text>
+  <path class="pipe pipe--raw" d="M64 120V584"/><path class="flow-dots flow-dots--raw" d="M64 120V584"/>
+  <path class="pipe pipe--ok" d="M64 806V990M64 942H96M64 986H96"/>
+  <path class="flow-dots flow-dots--ok" d="M64 806V942H96"/><path class="flow-dots flow-dots--ok" d="M64 806V986H96"/>
+  <rect class="eq" x="20" y="40" width="88" height="124" rx="10"/><path class="water-fill" d="M24 76q11-7 20 0t20 0 20 0 20 0v80a8 8 0 0 1-8 8h-64a8 8 0 0 1-8-8z"/>
+  <text class="lb" x="124" y="92">Резервуар</text><text class="lb-sm" x="124" y="111">або свердловина</text>
+  <circle class="eq" cx="64" cy="222" r="32"/><g class="impeller" style="transform-origin:64px 222px"><path class="eq-line" d="M64 202v40M44 222h40M50 208l28 28M78 208l-28 28"/></g><circle class="eq-hub" cx="64" cy="222" r="6"/>
+  <text class="lb" x="124" y="227">Насос</text>
+  <rect class="eq" x="40" y="282" width="48" height="96" rx="12"/><path class="eq-line" d="M50 298v64M59 298v64M69 298v64M78 298v64"/>
+  <text class="lb" x="124" y="330">Фільтри</text>
+  <rect class="eq" x="40" y="414" width="48" height="56" rx="8"/><path class="water-fill water-fill--dose" d="M44 436h40v26a4 4 0 0 1-4 4h-32a4 4 0 0 1-4-4z"/>
+  <text class="lb" x="124" y="436">Дозатор</text><text class="lb-sm" x="124" y="455">добрива або добавки</text>
+  <path class="dim" d="M26 232V580M18 232h16M18 580h16"/>
+  <text class="lb-sm" x="124" y="520">мінімум 2 м після насоса,</text><text class="lb-sm" x="124" y="538">3 м від великих двигунів</text>
+  
+  <g transform="translate(85 580) rotate(90)"><image href="/assets/img/tu-unit.jpg" x="0" y="0" width="230" height="42"/></g>
+    <image href="/assets/img/cu-h-00.jpg" x="128" y="592" width="118" height="132"/>
+  <path class="wire" d="M187 724V780H85"/>
+  
+  <text class="lb lb--t" x="196" y="746">Блок керування</text><text class="lb-sm" x="196" y="765">генерує сигнал</text>
+  <text class="lb lb--t" x="104" y="800">Блок обробки на трубі</text><text class="lb-sm" x="104" y="818">стрілка за потоком води</text>
+  <text class="zone zone--t" x="104" y="858">ОБРОБЛЕНА ВОДА</text>
+  <text class="lb-sm" x="104" y="880">живлення 100–240 В, заземлення</text><text class="lb-sm" x="104" y="897">води рекомендоване</text>
+  <path class="w-drop" d="M112 930c-6 8-9 12-9 17a9 9 0 0 0 18 0c0-5-3-9-9-17z"/><path class="w-drop" d="M112 974c-6 8-9 12-9 17a9 9 0 0 0 18 0c0-5-3-9-9-17z"/>
+  <text class="lb" x="132" y="948">Напувалки</text><text class="lb" x="132" y="992">Крапельниці</text>
+</svg>
+      <figcaption>Схема спрощена. Точку монтажу й довжину кабелів визначаємо на вашому об'єкті.</figcaption>
+    </figure>
+    <ol class="steps steps--row">
+      <li><b>Блок керування</b> генерує набір електромагнітних сигналів, підібраний під тип води та задачу.</li>
+      <li><b>Блок обробки</b> монтується прямо на трубу. Сигнал передається у воду, що проходить крізь нього.</li>
+      <li><b>Мінерали залишаються розчиненими</b> і не осідають у трубах, ніпелях, крапельницях і в ґрунті.</li>
+    </ol>
+    <h3 class="flow-title">Правила монтажу з інструкції виробника</h3>
+    <ul class="facts">
+      <li><b>Місце.</b> Після насосів, добрив і фільтрів, якомога ближче до споживача.</li>
+      <li><b>Напрямок.</b> Стрілка на блоці обробки має збігатися з напрямком води.</li>
+      <li><b>Відстані.</b> 3 м від великих двигунів насосів, 2 м після малих насосів, трансформаторів і електромагнітних витратомірів, 1 м від неекранованих силових кабелів.</li>
+      <li><b>Заземлення.</b> Для найкращого результату виробник рекомендує заземлення води.</li>
+    </ul>
+    <p class="muted how__note">Вода не змінює хімічний склад: нічого не додається й не видаляється. Система не потребує витратних матеріалів і може працювати від сонячної панелі.</p>
   </div>
 </section>
 
