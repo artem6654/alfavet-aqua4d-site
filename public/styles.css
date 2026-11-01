@@ -382,3 +382,22 @@ details p { margin: 0 0 18px; color: var(--muted); }
 .install__video { margin: 0 auto; max-width: 1040px; }
 .install__video video { display: block; width: 100%; height: auto; border-radius: var(--radius); background: var(--teal-deep); box-shadow: 0 16px 40px rgba(0,60,56,.14); }
 .install__video figcaption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+/* ===== Official equipment ===== */
+.gear { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.gear__spin { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; }
+.gear__spin img { width: 100%; height: auto; touch-action: pan-y; user-select: none; cursor: grab; }
+.gear__spin img:active { cursor: grabbing; }
+.gear__spin b { display: block; font-family: var(--head); color: var(--ink); font-size: 17px; }
+.gear__spin span { font-size: 14px; color: var(--muted); }
+.gear__list { display: grid; gap: 14px; }
+.gear__item { border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; background: #fff; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.gear__item img { max-height: 92px; width: auto; max-width: 100%; align-self: flex-start; }
+.gear__item h3 { font-size: 17px; margin: 0 0 2px; }
+.gear__item p { margin: 0; font-size: 14px; color: var(--muted); }
+.gear__src { text-align: center; font-size: 13px; color: var(--muted); margin: 12px 0 32px; }
+.install__real { margin: 32px auto 0; max-width: 1040px; }
+.install__real img { width: 100%; height: auto; border-radius: var(--radius); }
+.install__real figcaption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; }
+@media (max-width: 900px) { .gear { grid-template-columns: 1fr; } }
+.gear__item img.gear__small { max-height: 46px; }

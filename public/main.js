@@ -162,3 +162,29 @@ if (installVideo && !reduceMotion && 'IntersectionObserver' in window) {
     else installVideo.pause();
   }, { threshold: 0.4 }).observe(installVideo);
 }
+
+// Product turntable: rotates while on screen, drag to turn by hand
+const spin = document.getElementById('gear360');
+if (spin) {
+  const frames = 31;
+  const srcAt = (n) => `/assets/official/360/${n}.jpg`;
+  let frame = 1, loaded = false, visible = false, dragX = null;
+  const show = (n) => { frame = ((n - 1 + frames) % frames) + 1; spin.src = srcAt(frame); };
+  const preload = () => {
+    if (loaded) return;
+    loaded = true;
+    for (let i = 2; i <= frames; i += 1) new Image().src = srcAt(i);
+  };
+  new IntersectionObserver(([en]) => {
+    visible = en.isIntersecting;
+    if (visible) preload();
+  }, { rootMargin: '200px' }).observe(spin);
+  if (!reduceMotion) setInterval(() => { if (visible && dragX === null) show(frame + 1); }, 130);
+  spin.addEventListener('pointerdown', (e) => { dragX = e.clientX; spin.setPointerCapture(e.pointerId); });
+  spin.addEventListener('pointermove', (e) => {
+    if (dragX === null || Math.abs(e.clientX - dragX) < 12) return;
+    show(frame + (e.clientX > dragX ? 1 : -1));
+    dragX = e.clientX;
+  });
+  ['pointerup', 'pointercancel'].forEach((ev) => spin.addEventListener(ev, () => { dragX = null; }));
+}
