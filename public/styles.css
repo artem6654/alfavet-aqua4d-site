@@ -398,3 +398,31 @@ details p { margin: 0 0 18px; color: var(--muted); }
 .gear__src { text-align: center; font-size: 13px; color: var(--muted); margin: 12px 0 32px; }
 @media (max-width: 900px) { .gear { grid-template-columns: 1fr; } }
 .gear__item img.gear__small { max-height: 46px; }
+
+/* ===== Payback calculator ===== */
+.calc__grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: start; }
+.calc__form { background: var(--bg-alt); border-radius: var(--radius); padding: 28px; }
+.calc__form [data-calc-panel] { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.calc__form [data-calc-panel][hidden] { display: none; }
+.calc__form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.calc__form input { font: inherit; font-weight: 500; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); width: 100%; }
+.calc__form input:focus { outline: none; border-color: var(--teal); }
+.calc__form small { font-weight: 400; font-size: 12px; color: var(--muted); line-height: 1.35; }
+.calc__invest { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.calc__result { position: sticky; top: 92px; background: var(--teal-deep); color: #fff; border-radius: var(--radius); padding: 30px; }
+.calc__label { margin: 0; font-size: 15px; color: #bfe5e1; }
+.calc__big { margin: 2px 0 18px; font-family: var(--head); font-size: clamp(38px, 4vw, 52px); font-weight: 800; color: #fff; line-height: 1.1; }
+.calc__result dl { margin: 0 0 22px; }
+.calc__result dl div { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.18); font-size: 15px; }
+.calc__result dt { color: #d4efec; }
+.calc__result dd { margin: 0; font-family: var(--head); font-weight: 700; white-space: nowrap; }
+.calc__result .btn { width: 100%; justify-content: center; }
+.calc__note { margin: 14px 0 0; font-size: 12.5px; color: #bfe5e1; }
+@media (max-width: 900px) {
+  .calc__grid { grid-template-columns: 1fr; }
+  .calc__result { position: static; }
+}
+@media (max-width: 600px) {
+  .calc__form { padding: 20px; }
+  .calc__form [data-calc-panel] { grid-template-columns: 1fr; }
+}

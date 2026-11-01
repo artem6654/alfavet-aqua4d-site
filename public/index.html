@@ -38,6 +38,7 @@
       <a href="#how">Як працює</a>
       <a href="#sectors">Напрямки</a>
       <a href="#results">Результати</a>
+      <a href="#calc">Окупність</a>
       <a href="#models">Моделі</a>
       <a href="#process">Пілот</a>
       <a href="#faq">Питання</a>
@@ -366,6 +367,51 @@
         <div><b data-count="30" data-prefix="−">−30%</b><span>води на добу<br>344 → 242 м³</span></div>
       </div>
       <p class="case__note">Дані AQUA4D Water Solutions, 2015. Результат залежить від води, ґрунту й культури, тому ми починаємо з пілоту на вашому об'єкті.</p>
+    </div>
+  </div>
+</section>
+
+<section class="calc wrap" id="calc">
+  <h2 class="section-title">Калькулятор окупності</h2>
+  <p class="section-sub">Змініть цифри під своє господарство. Це попередня оцінка: реальний ефект покаже пілот на вашому об'єкті.</p>
+  <div class="tabs" role="tablist" aria-label="Тип господарства">
+    <button role="tab" aria-selected="true" data-calc="farm">Птахівництво</button>
+    <button role="tab" aria-selected="false" data-calc="drip">Крапельний полив</button>
+  </div>
+  <div class="calc__grid">
+    <form class="calc__form" id="calc-form">
+      <div data-calc-panel="farm">
+        <label>Кількість пташників<input id="c-houses" type="number" inputmode="decimal" min="1" step="1" value="4"></label>
+        <label>Голів в одному пташнику<input id="c-birds" type="number" inputmode="decimal" min="0" step="1000" value="30000"></label>
+        <label>Циклів на рік<input id="c-cycles" type="number" inputmode="decimal" min="0" step="1" value="6"></label>
+        <label>Жива вага на виході, кг<input id="c-weight" type="number" inputmode="decimal" min="0" step="0.1" value="2.5"></label>
+        <label>Ціна реалізації, грн/кг<input id="c-price" type="number" inputmode="decimal" min="0" step="1" value="55"></label>
+        <label>Економія на чистці, грн на пташник за цикл<input id="c-clean" type="number" inputmode="decimal" min="0" step="500" value="4000"><small>Кислота, хлор, робота персоналу, простій</small></label>
+        <label>Приріст продуктивності, %<input id="c-up-farm" type="number" inputmode="decimal" min="0" step="0.1" value="0.5"><small>Наше обережне припущення. Виробник таких цифр для птиці не наводить</small></label>
+      </div>
+      <div data-calc-panel="drip" hidden>
+        <label>Площа, га<input id="d-ha" type="number" inputmode="decimal" min="1" step="1" value="20"></label>
+        <label>Урожайність, т/га<input id="d-yield" type="number" inputmode="decimal" min="0" step="1" value="10"></label>
+        <label>Ціна реалізації, грн/кг<input id="d-price" type="number" inputmode="decimal" min="0" step="1" value="120"></label>
+        <label>Вода на полив, м³/га за рік<input id="d-water" type="number" inputmode="decimal" min="0" step="100" value="4000"></label>
+        <label>Економія води, %<input id="d-saving" type="number" inputmode="decimal" min="0" step="1" value="15"><small>Виробник заявляє в середньому 20–30%, ми беремо менше</small></label>
+        <label>Електрика на подачу води, кВт·год/м³<input id="d-kwh" type="number" inputmode="decimal" min="0" step="0.1" value="0.3"></label>
+        <label>Тариф, грн/кВт·год<input id="d-tariff" type="number" inputmode="decimal" min="0" step="0.5" value="9"></label>
+        <label>Економія на чистці й хімії, грн/га за рік<input id="d-clean" type="number" inputmode="decimal" min="0" step="500" value="6000"></label>
+        <label>Приріст урожаю, %<input id="d-up" type="number" inputmode="decimal" min="0" step="0.5" value="5"><small>Наше припущення, менше за заявлене виробником</small></label>
+      </div>
+      <label class="calc__invest">Обладнання й монтаж, грн без ПДВ<input id="c-invest" type="number" inputmode="numeric" min="0" step="1000"><small>Орієнтовно. Точну ціну дамо після аналізу води. Можна вписати свою</small></label>
+    </form>
+    <div class="calc__result" aria-live="polite">
+      <p class="calc__label">Окупність</p>
+      <p class="calc__big" id="r-payback">—</p>
+      <dl>
+        <div><dt>Вигода за рік</dt><dd id="r-year">—</dd></div>
+        <div><dt>Вкладення</dt><dd id="r-invest">—</dd></div>
+        <div><dt>Чиста вигода за 5 років</dt><dd id="r-five">—</dd></div>
+      </dl>
+      <a href="#contact" class="btn btn--white" id="calc-cta">Отримати точний розрахунок <span aria-hidden="true">→</span></a>
+      <p class="calc__note">Не є гарантією результату. Для ВРХ і свиней рахуємо індивідуально.</p>
     </div>
   </div>
 </section>

@@ -188,3 +188,66 @@ if (spin) {
   });
   ['pointerup', 'pointercancel'].forEach((ev) => spin.addEventListener(ev, () => { dragX = null; }));
 }
+
+// Payback calculator: same formulas as the ROI sheet of the financial model
+const calcForm = document.getElementById('calc-form');
+if (calcForm) {
+  const num = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
+  const uah = (v) => `${Math.round(v).toLocaleString('uk-UA')} грн`;
+  const investInput = document.getElementById('c-invest');
+  const investPerUnit = { farm: 170000, drip: 61600 };
+  const units = { farm: () => num('c-houses'), drip: () => num('d-ha') };
+  let mode = 'farm';
+  let investEdited = false;
+
+  const yearlyBenefit = () => {
+    if (mode === 'farm') {
+      const revenue = num('c-houses') * num('c-birds') * num('c-cycles') * num('c-weight') * num('c-price');
+      return revenue * num('c-up-farm') / 100 + num('c-houses') * num('c-cycles') * num('c-clean');
+    }
+    const revenue = num('d-ha') * num('d-yield') * 1000 * num('d-price');
+    const energy = num('d-ha') * num('d-water') * num('d-saving') / 100 * num('d-kwh') * num('d-tariff');
+    return revenue * num('d-up') / 100 + energy + num('d-ha') * num('d-clean');
+  };
+
+  const paybackText = (months) => {
+    if (months < 1) return 'менше місяця';
+    if (months <= 36) return `≈${Math.round(months)} міс.`;
+    return `≈${(months / 12).toFixed(1).replace('.', ',')} року`;
+  };
+
+  const update = () => {
+    if (!investEdited) investInput.value = units[mode]() * investPerUnit[mode];
+    const benefit = yearlyBenefit();
+    const invest = num('c-invest');
+    document.getElementById('r-payback').textContent = benefit > 0 ? paybackText(invest / benefit * 12) : 'не окупається';
+    document.getElementById('r-year').textContent = uah(benefit);
+    document.getElementById('r-invest').textContent = uah(invest);
+    document.getElementById('r-five').textContent = uah(benefit * 5 - invest);
+  };
+
+  calcForm.addEventListener('input', (e) => {
+    if (e.target === investInput) investEdited = true;
+    update();
+  });
+  calcForm.addEventListener('submit', (e) => e.preventDefault());
+
+  document.querySelectorAll('[data-calc]').forEach((tab, _, all) => {
+    tab.addEventListener('click', () => {
+      mode = tab.dataset.calc;
+      investEdited = false;
+      all.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+      document.querySelectorAll('[data-calc-panel]').forEach((p) => { p.hidden = p.dataset.calcPanel !== mode; });
+      update();
+    });
+  });
+
+  // Carry the estimate into the lead form
+  document.getElementById('calc-cta').addEventListener('click', () => {
+    const scope = mode === 'farm' ? `${num('c-houses')} пташн.` : `${num('d-ha')} га`;
+    form.elements.sector.value = mode === 'farm' ? 'Птахівництво' : 'Теплиці / крапельний полив';
+    form.elements.msg.value = `Калькулятор: ${scope}, вигода ${uah(yearlyBenefit())} на рік, окупність ${document.getElementById('r-payback').textContent}`;
+  });
+
+  update();
+}
