@@ -396,8 +396,5 @@ details p { margin: 0 0 18px; color: var(--muted); }
 .gear__item h3 { font-size: 17px; margin: 0 0 2px; }
 .gear__item p { margin: 0; font-size: 14px; color: var(--muted); }
 .gear__src { text-align: center; font-size: 13px; color: var(--muted); margin: 12px 0 32px; }
-.install__real { margin: 32px auto 0; max-width: 1040px; }
-.install__real img { width: 100%; height: auto; border-radius: var(--radius); }
-.install__real figcaption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; }
 @media (max-width: 900px) { .gear { grid-template-columns: 1fr; } }
 .gear__item img.gear__small { max-height: 46px; }
